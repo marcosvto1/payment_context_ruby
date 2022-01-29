@@ -1,6 +1,6 @@
 module Domain
   module Entities
-    class Subscription
+    class Subscription < Shared::Entities::Entity
       attr_reader :create_date, :last_update_date, :expire_date, :active, :payments
 
       def initialize(expire_date = nil?)

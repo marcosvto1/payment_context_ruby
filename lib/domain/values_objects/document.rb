@@ -7,14 +7,21 @@ module Domain
         super()
         @number = number
         @type = type
-        validate
+
+        puts "DOcument #{notifications.class}"
+
+        add_notification_contract Contract.new
+                                    .requires(@number, "Document.number")
+                                    .requires(@type, "Document.type")
+                                    .is_true(validate_document(), "Document.number", "CPF Inválido")
       end
 
       private
 
-      def validate
-        add_notification :number, "CPF inválido" if @number.size < 11 && @type == "CPF"
-        add_notification :number, "CNPJ inválido" if @number.size < 20 && @type == "CNPJ"
+      def validate_document
+        return true if @number.size == 11 && @type == "CPF"
+        return true if @number.size == 14 && @type == "CNPJ"
+        false
       end
     end
   end

@@ -1,6 +1,6 @@
 module Shared
   module ValueObjects
-    class ValueObject < Core::Notifiable
+    class ValueObject < Notifiable
     end
   end
 end
