@@ -10,6 +10,8 @@ require_relative "lib/shared/values_objects/value_object.rb"
 require_relative "lib/domain/values_objects/name.rb"
 require_relative "lib/domain/values_objects/email.rb"
 require_relative "lib/domain/values_objects/document.rb"
+
+require_relative "lib/shared/entities/entity"
 require_relative "lib/domain/entities/student.rb"
 require_relative "lib/domain/entities/subscription.rb"
 
@@ -25,20 +27,29 @@ module T1
   #   end
   # end
 end
+class ClassInterface
+  def validate
+    throw :not_implement
+  end
+end
 
-class ClassMethods
+class ClassMethod < ClassInterface
   include T1
 
   def exec
     ex1
   end
+
+  def validate
+    puts "estou validando"
+  end
 end
 
-# item = ClassMethods.new
-# item.exec
-nome = Domain::ValueObjects::Name.new("", "")
-documet = Domain::ValueObjects::Document.new("", "")
-puts nome.notifications
+item = ClassMethod.new
+item.validate
+# nome = Domain::ValueObjects::Name.new("", "")
+# documet = Domain::ValueObjects::Document.new("", "")
+# puts nome.notifications
 #
 #
 # puts nome.is_valid?

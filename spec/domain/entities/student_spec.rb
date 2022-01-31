@@ -19,6 +19,8 @@ require_relative "../../../lib/domain/entities/credit_card_payment.rb"
 require_relative "../../../lib/domain/entities/subscription.rb"
 require_relative "../../../lib/domain/entities/student.rb"
 
+#161C2D
+
 describe Domain::Entities::Student do
   it "Should Return Error When Has Active Subscription" do
     name = Domain::ValueObjects::Name.new("Bruce", "Wyne")

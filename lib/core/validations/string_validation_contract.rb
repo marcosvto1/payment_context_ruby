@@ -14,5 +14,4 @@ module StringValidationContract
     end
     self
   end
-
 end
